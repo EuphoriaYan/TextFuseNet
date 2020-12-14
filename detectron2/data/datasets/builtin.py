@@ -108,7 +108,7 @@ _PREDEFINED_SPLITS_COCO_PANOPTIC = {
 }
 
 
-def register_all_coco(root="***"):  # put your root path of ocr datasets here
+def register_all_coco(root=""):  # put your root path of ocr datasets here
     for dataset_name, splits_per_dataset in _PREDEFINED_SPLITS_COCO.items():
         for key, (image_root, json_file) in splits_per_dataset.items():
             # Assume pre-defined datasets live in `./datasets`.

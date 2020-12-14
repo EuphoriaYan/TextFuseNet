@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
     start_time_all = time.time()
     img_count = 0
-    for i in glob.glob(test_images_path):
+    for i in glob.glob(test_images_path[0]):
         print(i)
         img_name = os.path.basename(i)
         img_save_path = output_path + img_name.split('.')[0] + '.jpg'
@@ -132,8 +132,8 @@ if __name__ == "__main__":
         
         prediction, vis_output, polygons = detection_demo.run_on_image(img)
 
-        txt_save_path = output_path + 'res_img' + img_name.split('.')[0].split('img')[1] + '.txt'
-        save_result_to_txt(txt_save_path,prediction,polygons)
+        txt_save_path = output_path + 'res_img' + os.path.basename(img_name) + '.txt'
+        save_result_to_txt(txt_save_path,prediction, polygons)
 
         print("Time: {:.2f} s / img".format(time.time() - start_time))
         vis_output.save(img_save_path)
